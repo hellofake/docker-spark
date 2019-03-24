@@ -2,7 +2,7 @@
 This repository contains Dockerfile to build spark standalone cluster mode using docker,and has start_spark.sh script to configure and run  spark standalone cluster mode.
 
 ## 1. The distributed file system
-Dockerfile script using nfs as distributed file system,so you should install nfs first,if you have four computers
+Dockerfile script using nfs as distributed file system, so you should install nfs first, suppose you have four computers
 ```
 192.168.6.168 master
 192.168.6.167 slave1
