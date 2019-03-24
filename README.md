@@ -2,7 +2,7 @@
 This repository contains Dockerfile to build spark standalone cluster mode using docker,and has start_spark.sh script to configure and run  spark standalone cluster mode.
 
 ## 1. The distributed file system
-Dockerfile script using nfs as distributed file system, so you should install nfs first, suppose you have four computers
+Dockerfile script using nfs as distributed file system, so you should install nfs first, suppose you have four computers.
 ```
 192.168.6.168 master
 192.168.6.167 slave1
@@ -22,7 +22,7 @@ if /home/nfs not exist, you should mkdir it first by ```mkdir -p /home/nfs```
 ```
 /home/nfs 192.168.6.0/24(rw,no_root_squash,no_all_squash,sync)
 ```
-after save you configure you should run ```exportfs -r``` to take it effect 
+you should run ```exportfs -r``` to take it effect after you save your configure.
 ### 2) install nfs client on slaves
 ```
 yum -y install nfs-utils
@@ -35,8 +35,7 @@ and run ```mkdir -p /nfs/mnt ```to mount master's nfs dictionary
 ```
 mount -t nfs 192.168.6.168:/home/nfs /nfs/mnt -o proto=tcp -o nolock
 ```
-you should mount /nfs/mnt nfs dictionary on master and slaves
-Now master and slaves have nfs dictionary(/nfs/mnt), this will used by spark.
+You should mount /nfs/mnt nfs dictionary on master and slaves. Now master and slaves have nfs dictionary(/nfs/mnt), this will used by spark.
 
 ## 2.JDK1.8 Spark-2.2.0 and Zookeeper3.4.13
 Dockerfile using downloaded file to copy to docker image, so you should download [JDK1.8](https://download.oracle.com/otn/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz),[Spark-2.2.0](http://archive.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz),[Zookeeper3.4.13](http://archive.apache.org/dist/zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz) in the same directory with Dockerfile. Also, you can download other version spark、zookeeper、jdk, just rewrite Dockerfile.
