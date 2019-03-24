@@ -62,7 +62,7 @@ docker build -t link2map/spark:1.0 .
 then save the image as tar and transfer to other node
 ```
 docker save -o spark.tar link2map/spark:1.0
-scp spark.tart user@slave1:/home/docker/spark
+scp spark.tar user@slave1:/home/docker/spark
 ```
 on slaves 
 ```
